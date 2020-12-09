@@ -8,9 +8,9 @@ You can sink/source up to 20mA from any of the I/O pins so this will work for LE
 
 ![pcb top](images/pcb_top.png)
 
-## Configure I2C adress
+## Configure i2c address
 
-This wing uses I2C 7-bit address between 0x20-0x27, selectable with jumpers. On the left side of the wing there is 3 small solder jumpers labeled A0 - A2. By shorting out the solder jumper A0, A1, and A2 you can change the I2C address of the MCP23008.
+This wing uses i2c 7-bit address between 0x20-0x27, selectable with jumpers. On the left side of the wing there is 3 small solder jumpers labeled A0 - A2. By shorting out the solder jumper A0, A1, and A2 you can change the i2c address of the MCP23008.
 
 | A2 | A1 | A0 | Address |
 | --- | --- | --- | --- | 
