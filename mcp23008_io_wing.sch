@@ -1489,10 +1489,7 @@ DIN A4, landscape with location and doc. field</description>
 <part name="U$2" library="rickk2" deviceset="MCP23008" device=""/>
 <part name="SUPPLY1" library="rickk2" deviceset="VCC" device=""/>
 <part name="GND3" library="rickk2" deviceset="GND" device=""/>
-<part name="SUPPLY2" library="rickk2" deviceset="VCC" device=""/>
-<part name="SUPPLY3" library="rickk2" deviceset="VCC" device=""/>
 <part name="SUPPLY4" library="rickk2" deviceset="VCC" device=""/>
-<part name="SUPPLY5" library="rickk2" deviceset="VCC" device=""/>
 <part name="JP2" library="microbuilder" deviceset="HEADER-2X8" device="_SHROUDED"/>
 <part name="GND2" library="rickk2" deviceset="GND" device=""/>
 <part name="ADDR2" library="microbuilder" deviceset="SOLDERJUMPER" device=""/>
@@ -1518,8 +1515,6 @@ DIN A4, landscape with location and doc. field</description>
 <part name="INT11" library="microbuilder" deviceset="SOLDERJUMPER" device=""/>
 <part name="INT12" library="microbuilder" deviceset="SOLDERJUMPER" device=""/>
 <part name="INT13" library="microbuilder" deviceset="SOLDERJUMPER" device=""/>
-<part name="R1" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="10K"/>
-<part name="R2" library="microbuilder" deviceset="RESISTOR" device="_0603_NOOUT" value="10K"/>
 </parts>
 <sheets>
 <sheet>
@@ -1540,17 +1535,8 @@ ADDR=0x20</text>
 <instance part="GND3" gate="1" x="71.12" y="76.2" smashed="yes">
 <attribute name="VALUE" x="68.58" y="73.66" size="1.778" layer="96"/>
 </instance>
-<instance part="SUPPLY2" gate="G$1" x="182.88" y="96.52" smashed="yes" rot="R270">
-<attribute name="VALUE" x="186.436" y="97.536" size="1.778" layer="96" rot="R270"/>
-</instance>
-<instance part="SUPPLY3" gate="G$1" x="165.1" y="93.98" smashed="yes" rot="R270">
-<attribute name="VALUE" x="168.656" y="94.996" size="1.778" layer="96" rot="R270"/>
-</instance>
 <instance part="SUPPLY4" gate="G$1" x="99.06" y="53.34" smashed="yes" rot="R180">
 <attribute name="VALUE" x="100.076" y="49.784" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="SUPPLY5" gate="G$1" x="60.96" y="91.44" smashed="yes" rot="R90">
-<attribute name="VALUE" x="57.404" y="90.424" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="JP2" gate="G$1" x="88.9" y="38.1" smashed="yes" rot="R270">
 <attribute name="NAME" x="99.695" y="46.99" size="1.778" layer="95" rot="R270"/>
@@ -1649,14 +1635,6 @@ ADDR=0x20</text>
 <attribute name="NAME" x="104.14" y="111.76" size="1.27" layer="95"/>
 <attribute name="VALUE" x="104.14" y="105.41" size="1.27" layer="96"/>
 </instance>
-<instance part="R1" gate="G$1" x="160.02" y="93.98" smashed="yes" rot="R180">
-<attribute name="NAME" x="160.02" y="91.44" size="1.27" layer="95" font="vector" rot="R180" align="center"/>
-<attribute name="VALUE" x="160.02" y="93.98" size="1.016" layer="96" font="vector" ratio="15" rot="R180" align="center"/>
-</instance>
-<instance part="R2" gate="G$1" x="177.8" y="96.52" smashed="yes" rot="R180">
-<attribute name="NAME" x="177.8" y="93.98" size="1.27" layer="95" font="vector" rot="R180" align="center"/>
-<attribute name="VALUE" x="177.8" y="96.52" size="1.016" layer="96" font="vector" ratio="15" rot="R180" align="center"/>
-</instance>
 </instances>
 <busses>
 </busses>
@@ -1710,18 +1688,6 @@ ADDR=0x20</text>
 </net>
 <net name="3V" class="0">
 <segment>
-<wire x1="180.34" y1="96.52" x2="182.88" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="SUPPLY2" gate="G$1" pin="VCC"/>
-<junction x="182.88" y="96.52"/>
-<pinref part="R2" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<wire x1="162.56" y1="93.98" x2="165.1" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="SUPPLY3" gate="G$1" pin="VCC"/>
-<junction x="165.1" y="93.98"/>
-<pinref part="R1" gate="G$1" pin="1"/>
-</segment>
-<segment>
 <wire x1="99.06" y1="55.88" x2="99.06" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="SUPPLY4" gate="G$1" pin="VCC"/>
 <pinref part="U$2" gate="G$1" pin="VCC"/>
@@ -1740,6 +1706,12 @@ ADDR=0x20</text>
 <junction x="81.28" y="129.54"/>
 <pinref part="ADDR0" gate="1" pin="2"/>
 <wire x1="81.28" y1="129.54" x2="71.12" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="/RESET"/>
+<wire x1="86.36" y1="83.82" x2="86.36" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="91.44" x2="60.96" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="91.44" x2="60.96" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="132.08" x2="81.28" y2="132.08" width="0.1524" layer="91"/>
+<junction x="81.28" y="132.08"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -1748,10 +1720,7 @@ ADDR=0x20</text>
 <wire x1="154.94" y1="96.52" x2="172.72" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="G$1" pin="SCK"/>
 <wire x1="99.06" y1="83.82" x2="172.72" y2="83.82" width="0.1524" layer="91"/>
-<junction x="172.72" y="96.52"/>
 <wire x1="172.72" y1="83.82" x2="172.72" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="175.26" y1="96.52" x2="172.72" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SDA" class="0">
@@ -1760,7 +1729,6 @@ ADDR=0x20</text>
 <pinref part="U$2" gate="G$1" pin="SDA"/>
 <wire x1="96.52" y1="83.82" x2="96.52" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="86.36" x2="96.52" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="154.94" y1="93.98" x2="154.94" y2="86.36" width="0.1524" layer="91"/>
 <junction x="154.94" y="86.36"/>
 </segment>
@@ -1969,14 +1937,6 @@ ADDR=0x20</text>
 <pinref part="INT4" gate="1" pin="2"/>
 <pinref part="MS1" gate="G$1" pin="GPIO6"/>
 <wire x1="154.94" y1="101.6" x2="172.72" y2="101.6" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="VCC" class="0">
-<segment>
-<pinref part="U$2" gate="G$1" pin="/RESET"/>
-<wire x1="86.36" y1="83.82" x2="86.36" y2="91.44" width="0.1524" layer="91"/>
-<pinref part="SUPPLY5" gate="G$1" pin="VCC"/>
-<wire x1="60.96" y1="91.44" x2="86.36" y2="91.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
